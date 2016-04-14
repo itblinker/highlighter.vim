@@ -5,7 +5,7 @@
 " Description: Highlight lines or patterns of interest in different colors
 " Uasge:
 "   Line mode
-"     <C-h><C-h>   Highlight current line 
+"     <C-h><C-h>   Highlight current line
 "     <C-h><C-a>   Advance color for next line highlight
 "     <C-h><C-r>   Clear last line highlight
 "
@@ -46,7 +46,7 @@
 "
 
 
-if exists("loaded_highlight") 
+if exists("loaded_highlight")
    finish
 endif
 let loaded_highlight = ""
@@ -55,58 +55,77 @@ syntax on
 
 " -- Normal mode mappings --
 
-" Highlight current line 
-noremap  <silent> <C-h><C-h> :call <SID>Highlight("h") \| nohls<CR>
+" Highlight current line
+"noremap  <silent> <C-h><C-h> :call <SID>Highlight("h") \| nohls<CR>
+noremap  <silent> <leader>hh :call <SID>Highlight("h") \| nohls<CR>
+
 " Advance color for next line highlight
-noremap  <silent> <C-h><C-a> :call <SID>Highlight("a")<CR>
+"noremap  <silent> <C-h><C-a> :call <SID>Highlight("a")<CR>
+noremap  <silent> <leader>ha :call <SID>Highlight("a")<CR>
+
 " Clear last line highlight
-noremap  <silent> <C-h><C-r> :call <SID>Highlight("r")<CR>
+"noremap  <silent> <C-h><C-r> :call <SID>Highlight("r")<CR>
+noremap  <silent> <leader>hr :call <SID>Highlight("r")<CR>
 
 " Highlight word under cursor (whole word match)
-noremap  <silent> <C-h><C-w> :call <SID>Highlight("w") \| nohls<CR>
+"noremap  <silent> <C-h><C-w> :call <SID>Highlight("w") \| nohls<CR>
+noremap  <silent> <leader>hw :call <SID>Highlight("w") \| nohls<CR>
+
 " Highlight all lines having word under cursor (whole word match)
-noremap  <silent> <C-h><C-l> :call <SID>Highlight("l") \| nohls<CR>
+"noremap  <silent> <C-h><C-l> :call <SID>Highlight("l") \| nohls<CR>
+noremap  <silent> <leader>hl :call <SID>Highlight("l") \| nohls<CR>
+
 " Highlight word under cursor (partial word match)
-noremap  <silent> <C-h><C-f> :call <SID>Highlight("f") \| nohls<CR>
+"noremap  <silent> <C-h><C-f> :call <SID>Highlight("f") \| nohls<CR>
+noremap  <silent> <leader>hf :call <SID>Highlight("f") \| nohls<CR>
+
 " Highlight all lines having word under cursor (partial word match)
-noremap  <silent> <C-h><C-k> :call <SID>Highlight("k") \| nohls<CR>
+"noremap  <silent> <C-h><C-k> :call <SID>Highlight("k") \| nohls<CR>
+noremap  <silent> <leader>hk :call <SID>Highlight("k") \| nohls<CR>
+
 " Highlight last search pattern
-noremap  <silent> <C-h><C-s> :call <SID>Highlight("s") \| nohls<CR>
+"noremap  <silent> <C-h><C-s> :call <SID>Highlight("s") \| nohls<CR>
+noremap  <silent> <leader>hs :call <SID>Highlight("s") \| nohls<CR>
+
 " Highlight all lines having last search pattern
-noremap  <silent> <C-h><C-j> :call <SID>Highlight("j") \| nohls<CR>
+"noremap  <silent> <C-h><C-j> :call <SID>Highlight("j") \| nohls<CR>
+noremap  <silent> <leader>hj :call <SID>Highlight("j") \| nohls<CR>
+
+
 " Clear last pattern highlight
-noremap  <silent> <C-h><C-d> :call <SID>Highlight("d")<CR>
+"noremap  <silent> <C-h><C-d> :call <SID>Highlight("d")<CR>
+noremap  <silent> <leader>hd :call <SID>Highlight("d")<CR>
 
 " Clear all highlights
-noremap  <silent> <C-h><C-n> :call <SID>Highlight("n")<CR>
+"noremap  <silent> <C-h><C-n> :call <SID>Highlight("n")<CR>
+noremap  <silent> <leader>hn :call <SID>Highlight("n")<CR>
 
 
 " -- Insert mode mappings --
+ "Highlight current line
+"inoremap <silent> <C-h><C-h> <C-o>:call <SID>Highlight("h")<CR>
+ "Advance color for next line highlight
+"inoremap <silent> <C-h><C-a> <C-o>:call <SID>Highlight("a")<CR>
+ "Clear last line highlight
+"inoremap <silent> <C-h><C-r> <C-o>:call <SID>Highlight("r")<CR>
 
-" Highlight current line 
-inoremap <silent> <C-h><C-h> <C-o>:call <SID>Highlight("h")<CR>
-" Advance color for next line highlight
-inoremap <silent> <C-h><C-a> <C-o>:call <SID>Highlight("a")<CR>
-" Clear last line highlight
-inoremap <silent> <C-h><C-r> <C-o>:call <SID>Highlight("r")<CR>
+ "Highlight word under cursor (whole word match)
+"inoremap <silent> <C-h><C-w> <C-o>:call <SID>Highlight("w") \| nohls<CR>
+ "Highlight all lines having word under cursor (whole word match)
+"inoremap <silent> <C-h><C-l> <C-o>:call <SID>Highlight("l") \| nohls<CR>
+ "Highlight word under cursor (partial word match)
+"inoremap <silent> <C-h><C-f> <C-o>:call <SID>Highlight("f") \| nohls<CR>
+ "Highlight all lines having word under cursor (partial word match)
+"inoremap <silent> <C-h><C-k> <C-o>:call <SID>Highlight("k") \| nohls<CR>
+ "Highlight last search pattern
+"inoremap <silent> <C-h><C-s> <C-o>:call <SID>Highlight("s") \| nohls<CR>
+ "Highlight all lines having last search pattern
+"inoremap <silent> <C-h><C-j> <C-o>:call <SID>Highlight("j") \| nohls<CR>
+ "Clear last pattern highlight
+"inoremap <silent> <C-h><C-d> <C-o>:call <SID>Highlight("d")<CR>
 
-" Highlight word under cursor (whole word match)
-inoremap <silent> <C-h><C-w> <C-o>:call <SID>Highlight("w") \| nohls<CR>
-" Highlight all lines having word under cursor (whole word match)
-inoremap <silent> <C-h><C-l> <C-o>:call <SID>Highlight("l") \| nohls<CR>
-" Highlight word under cursor (partial word match)
-inoremap <silent> <C-h><C-f> <C-o>:call <SID>Highlight("f") \| nohls<CR>
-" Highlight all lines having word under cursor (partial word match)
-inoremap <silent> <C-h><C-k> <C-o>:call <SID>Highlight("k") \| nohls<CR>
-" Highlight last search pattern
-inoremap <silent> <C-h><C-s> <C-o>:call <SID>Highlight("s") \| nohls<CR>
-" Highlight all lines having last search pattern
-inoremap <silent> <C-h><C-j> <C-o>:call <SID>Highlight("j") \| nohls<CR>
-" Clear last pattern highlight
-inoremap <silent> <C-h><C-d> <C-o>:call <SID>Highlight("d")<CR>
-
-" Clear all highlights
-inoremap <silent> <C-h><C-n> <C-o>:call <SID>Highlight("n")<CR>
+ "Clear all highlights
+"inoremap <silent> <C-h><C-n> <C-o>:call <SID>Highlight("n")<CR>
 
 
 " Define colors for Line highlight
@@ -144,7 +163,7 @@ if !exists('g:pcolor_fg_cterm')
 endif
 
 
-" Highlight: Highlight line or pattern 
+" Highlight: Highlight line or pattern
 function! <SID>Highlight(mode)
    " Line mode
    if a:mode == 'h'
@@ -211,7 +230,7 @@ endfun
 
 " ItemCount: Returns the number of items in the given string.
 " Developed by Dan Sharp in MultipleSearch2.vim at
-" http://www.vim.org/scripts/script.php?script_id=1183 
+" http://www.vim.org/scripts/script.php?script_id=1183
 function! s:ItemCount(string)
     let itemCount = 0
     let newstring = a:string
@@ -226,7 +245,7 @@ endfunction
 
 " Min: Returns the minimum of the given parameters.
 " Developed by Dan Sharp in MultipleSearch2.vim at
-" http://www.vim.org/scripts/script.php?script_id=1183 
+" http://www.vim.org/scripts/script.php?script_id=1183
 function! s:Min(...)
     let min = a:1
     let index = 2
@@ -238,8 +257,8 @@ function! s:Min(...)
 endfunction
 
 " HighlightInitL: Initialize the highlight groups for line highlight
-" Based on 'MultipleSearchInit' function developed by Dan Sharp in 
-" MultipleSearch2.vim at http://www.vim.org/scripts/script.php?script_id=1183 
+" Based on 'MultipleSearchInit' function developed by Dan Sharp in
+" MultipleSearch2.vim at http://www.vim.org/scripts/script.php?script_id=1183
 function! s:HighlightInitL()
    let s:lcolor_grp = "LHiColor"
    let s:lcolor_n = 0
@@ -252,18 +271,18 @@ function! s:HighlightInitL()
       let fgColor = s:Strntok(g:lcolor_fg, ',', ci + 1)
       let bgColor_cterm = s:Strntok(g:lcolor_bg_cterm, ',', ci + 1)
       let fgColor_cterm = s:Strntok(g:lcolor_fg_cterm, ',', ci + 1)
-     
+
       exec 'hi ' . s:lcolor_grp . ci .
          \ ' guifg =' . fgColor . ' guibg=' . bgColor
          \ ' ctermfg =' . fgColor_cterm . ' ctermbg=' . bgColor_cterm
-     
+
       let ci = ci + 1
    endw
 endfunction
 
 " HighlightInitP: Initialize the highlight groups for line highlight
-" Based on 'MultipleSearchInit' function developed by Dan Sharp in 
-" MultipleSearch2.vim at http://www.vim.org/scripts/script.php?script_id=1183 
+" Based on 'MultipleSearchInit' function developed by Dan Sharp in
+" MultipleSearch2.vim at http://www.vim.org/scripts/script.php?script_id=1183
 function! s:HighlightInitP()
    let s:pcolor_grp = "PHiColor"
    let s:pcolor_n = 0
@@ -276,11 +295,11 @@ function! s:HighlightInitP()
       let fgColor = s:Strntok(g:pcolor_fg, ',', ci + 1)
       let bgColor_cterm = s:Strntok(g:pcolor_bg_cterm, ',', ci + 1)
       let fgColor_cterm = s:Strntok(g:pcolor_fg_cterm, ',', ci + 1)
-     
+
       exec 'hi ' . s:pcolor_grp . ci .
          \ ' guifg =' . fgColor . ' guibg=' . bgColor
          \ ' ctermfg =' . fgColor_cterm . ' ctermbg=' . bgColor_cterm
-     
+
       let ci = ci + 1
    endw
 endfunction
